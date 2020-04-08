@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tabla_Hash.Estructuras
 {
-    public class Nodo<T> where T : IComparable<T>
+    public class Nodo<T> where T : IComparable<T>, IFormattable
     {
         public T Value { get; set; }
-        public T Key { get; set; }
+
     }
 }

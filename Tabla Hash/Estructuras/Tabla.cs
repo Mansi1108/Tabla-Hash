@@ -9,26 +9,19 @@ using System.Collections;
 
 namespace Tabla_Hash.Estructuras
 {
-    public class Tabla<T> : LinearDataStructureBase<T> where T : IComparable<T>
+    public class Tabla<T> : LinearDataStructureBase<T> where T : IComparable<T>, IFormattable
     {
-        private Nodo<T> key = new Nodo<T>();
-
-        public void Add(T value)
-        {
-            
-        }
-
-
-        protected override void  Delete(Nodo<T> nodo)
-        {
-            
-        }
-
-        protected override Nodo<T> Get(Nodo<T> nodo)
+        protected override void Delete(T Value)
         {
             throw new NotImplementedException();
         }
-        protected override Nodo<T> Insert(Nodo<T> nodo)
+
+        protected override T Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void Insert(T Value)
         {
             throw new NotImplementedException();
         }

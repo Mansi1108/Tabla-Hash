@@ -9,8 +9,8 @@ namespace Tabla_Hash.Interface
 {
     public abstract class LinearDataStructureBase<T> where T : IComparable<T>
     {
-        protected abstract Nodo<T> Insert(Nodo<T> nodo);
-        protected abstract void Delete(Nodo<T> nodo);
-        protected abstract Nodo<T> Get(Nodo<T> nodo);
+        protected abstract void Insert(T Value);
+        protected abstract void Delete(T Value);
+        protected abstract T Get();
     }
 }
