@@ -9,6 +9,16 @@ namespace Tabla_Hash.Estructuras
     public class Nodo<T> where T : IComparable<T>, IFormattable
     {
         public T Value { get; set; }
+        public string key { get; set; }
+
+        public override string ToString()
+        {
+            return key;
+        }
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return key;
+        }
 
     }
 }

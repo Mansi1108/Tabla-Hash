@@ -7,10 +7,10 @@ using Tabla_Hash.Estructuras;
 
 namespace Tabla_Hash.Interface
 {
-    public abstract class LinearDataStructureBase<T> where T : IComparable<T>
+    public abstract class LinearDataStructureBase<T> where T : IComparable<T>, IFormattable
     {
         protected abstract void Insert(T Value);
-        protected abstract void Delete(T Value);
+        protected abstract  Nodo<T> Delete();
         protected abstract T Get();
     }
 }

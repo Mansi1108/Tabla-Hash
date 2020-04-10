@@ -11,7 +11,11 @@ namespace Tabla_Hash.Estructuras
 {
     public class Tabla<T> : LinearDataStructureBase<T> where T : IComparable<T>, IFormattable
     {
-        protected override void Delete(T Value)
+        private static int size = 10;
+        List<T>[] TH = new List<T>[size];
+        string s;
+
+        protected override Nodo<T> Delete()
         {
             throw new NotImplementedException();
         }
@@ -24,6 +28,17 @@ namespace Tabla_Hash.Estructuras
         protected override void Insert(T Value)
         {
             throw new NotImplementedException();
+        }
+        
+        static int HashingF(List<T> [] values, string llave)
+        {
+            int total = 0;
+            char[] c;
+            c = llave.ToCharArray();
+            for (int i = 0; i <= c.GetUpperBound(0); i++)
+                total += (int)c[i];
+
+            return total % values.GetUpperBound(0);
         }
     }
 }
