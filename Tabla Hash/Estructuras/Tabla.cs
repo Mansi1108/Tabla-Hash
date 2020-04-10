@@ -11,13 +11,19 @@ namespace Tabla_Hash.Estructuras
 {
     public class Tabla<T> : LinearDataStructureBase<T> where T : IComparable<T>, IFormattable
     {
-        private static int size = 10;
-        List<T>[] TH = new List<T>[size];
-        string s;
+        List<T>[] TH = new List<T>[10];
 
-        protected override Nodo<T> Delete()
+        
+        protected override void Delete(Nodo<T> nodo)
         {
-            throw new NotImplementedException();
+            int i = HashingF(nodo.Value.ToString());
+            foreach (var item in TH[i])
+            {
+                if (item.CompareTo(nodo.Value) == 0)
+                {
+                    TH[i].Remove(item);
+                }
+            }
         }
 
         protected override T Get()
@@ -25,20 +31,36 @@ namespace Tabla_Hash.Estructuras
             throw new NotImplementedException();
         }
 
-        protected override void Insert(T Value)
+        protected override void Insert(T value)
         {
-            throw new NotImplementedException();
+            int i = HashingF(value.ToString());
+            if (TH[i] == null)
+            {
+                TH[i] = new List<T>();
+            }
+            TH[i].Add(value);
+
+            T S;
+            int code;
+            for (int k = 0; k < 5; k++)
+            {
+                S = TH[k];
+                code = HashingF(value);
+
+                // Storing keys at their hashcode's index 
+                values[hashCode] = str;
+            }
         }
         
-        static int HashingF(List<T> [] values, string llave)
+        static int HashingF(string llave)
         {
             int total = 0;
             char[] c;
             c = llave.ToCharArray();
-            for (int i = 0; i <= c.GetUpperBound(0); i++)
+            for (int i = 0; i <= c.Length; i++)
                 total += (int)c[i];
 
-            return total % values.GetUpperBound(0);
+            return total % 11;
         }
     }
 }
